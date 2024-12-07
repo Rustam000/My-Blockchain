@@ -4,7 +4,7 @@ import { map } from "ramda";
 import { transactionFromJSON } from "./Transaction";
 
 const INITIAL_DIFFICULTY = 2;
-const TARGET_BLOCK_TIME = 10000; // 10 секунд
+const TARGET_BLOCK_TIME = 10000; 
 
 class Block {
   constructor(opts) {
@@ -64,10 +64,10 @@ class Block {
       utxoPool: this.utxoPool.clone(),
       coinbaseBeneficiary,
       timestamp: Date.now(),
-      difficulty: this.adjustDifficulty(), // Рассчитываем сложность
+      difficulty: this.adjustDifficulty(),
     });
 
-    // For convenience, allow the miner to immediately spend the coinbase coins
+    
     block.utxoPool.addUTXO(coinbaseBeneficiary, 12.5);
 
     return block;
@@ -111,11 +111,11 @@ class Block {
     if (this.isRoot()) return INITIAL_DIFFICULTY;
     const timeTaken = this.timestamp - this.blockchain.getPreviousBlock(this).timestamp;
     if (timeTaken < TARGET_BLOCK_TIME / 2) {
-      return this.difficulty + 1; // Увеличиваем сложность
+      return this.difficulty + 1; // 
     } else if (timeTaken > TARGET_BLOCK_TIME * 2) {
-      return Math.max(1, this.difficulty - 1); // Уменьшаем сложность
+      return Math.max(1, this.difficulty - 1); 
     }
-    return this.difficulty; // Оставляем прежней
+    return this.difficulty;
   }
 
   logBlock() {
