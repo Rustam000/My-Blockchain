@@ -160,7 +160,7 @@ class Block {
   }
 
   _generateBlockID() {
-    return sha256(this.hash + this.height).toString().substr(0, 8); // Генерируем уникальный ID
+    return sha256(this.hash + this.height).toString().substr(0, 8); 
   }
 }
 
