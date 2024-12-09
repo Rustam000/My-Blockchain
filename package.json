@@ -11,6 +11,10 @@
   },
   "dependencies": {
     "@blueprintjs/core": "^5.16.0",
+    "@blueprintjs/labs": "^0.16.3",
+    "@blueprintjs/select": "^5.3.5",
+    "@blueprintjs/timezone": "^4.5.43",
+    "@nosferatu500/react-sortable-tree": "^4.4.0",
     "crypto": "^1.0.1",
     "crypto-js": "^4.2.0",
     "elliptic": "^6.6.1",

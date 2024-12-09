@@ -1,29 +1,29 @@
 import React, { Component } from "react";
-import { Tab2, Tabs2 } from "@blueprintjs/core";
+import { Tab, Tabs } from "@blueprintjs/core";
 import BlockInfo from "./Blockinfo";
 import UTXOPoolTable from "./UTXOPoolTable";
-import TransactionTable from "./TransactionTable";
+// import TransactionTable from "./TransactionTable";
 class DetailBlock extends Component {
   render() {
     return (
       <div style={{ padding: "10px" }}>
-        <Tabs2>
-          <Tab2
+        <Tabs>
+          <Tab
             id="blockinfo"
             title="Block Info"
             panel={<BlockInfo block={this.props.block} />}
           />
-          <Tab2
+          <Tab
             id="transactions"
             title="Transactions"
             panel={<TransactionTable transactions={this.props.block.transactions} />}
           />
-          <Tab2
+          <Tab
             id="utxopool"
             title="UTXOPool"
             panel={<UTXOPoolTable block={this.props.block} />}
           />
-        </Tabs2>
+        </Tabs>
       </div>
     );
   }
