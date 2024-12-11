@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import BlockchainTree from "./BlockchainTree";
-// import IdentityListItem from "./IdentityListItem";
+import IdentityListItem from "./IdentityListItem";
 import { Tab, Tabs, Tooltip } from "@blueprintjs/core";
 // import WelcomeUTXOPoolTable from "./WelcomeUTXOPoolTable";
 import "../App.css";

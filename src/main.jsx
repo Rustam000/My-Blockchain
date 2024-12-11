@@ -5,7 +5,7 @@ import App from './App.jsx'
 import Blockchain from './models/Blockchain.js'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Blockchain/>
-  </StrictMode>,
+  
+  <App/>
+  
 )

@@ -7,19 +7,30 @@ import { Tooltip, Dialog } from "./components/walkthrough";
 
 class App extends Component {
   state = {
-    ownBlockchainName: ""
+    ownBlockchainName: "",
   };
-  pickBlockchain = name => {
+
+  pickBlockchain = (name) => {
     action({ type: "PICK_BLOCKCHAIN", name });
   };
+
   render() {
+    const { appState } = this.props;
+
+    
+    const selectedBlockchain = appState?.selectedBlockchain;
+    const blockchains = appState?.blockchains || [];
+    const node = appState?.node;
+    const identities = appState?.identities;
+
     return (
       <div className="">
         <nav className="pt-navbar">
           <div className="pt-navbar-group pt-align-left">
             <div className="pt-navbar-heading">Build your own Blockchain</div>
-            Made by&nbsp;<a
-              href="https://twitter.com/nambrot"
+            Made by&nbsp;
+            <a
+              href=""
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -32,45 +43,38 @@ class App extends Component {
               step={1}
               content={
                 <p style={{ maxWidth: "250px" }}>
-                  You can either keep the current blockchain or start you own
-                  blockchain from scratch
+                  You can either keep the current blockchain or start your own
+                  blockchain from scratch.
                 </p>
               }
             >
               <select
-                onChange={evt => {
+                onChange={(evt) => {
                   this.pickBlockchain(evt.target.value);
                 }}
-                value={
-                  this.props.appState.selectedBlockchain
-                    ? this.props.appState.selectedBlockchain.name
-                    : ""
-                }
+                value={selectedBlockchain ? selectedBlockchain.name : ""}
               >
-                {[
-                  <option key="default" value="">
-                    Pick a blockchain or
+                <option key="default" value="">
+                  Pick a blockchain or
+                </option>
+                {blockchains.map((b) => (
+                  <option key={b.name} value={b.name}>
+                    {b.name}
                   </option>
-                ].concat(
-                  this.props.appState.blockchains.map(b => (
-                    <option key={b.name} value={b.name}>
-                      {b.name}
-                    </option>
-                  ))
-                )}
+                ))}
               </select>
             </Tooltip>
             <div className="pt-control-group">
               <div className="pt-input-group">
                 <input
                   className="pt-input"
-                  placeholder="create your own"
+                  placeholder="Create your own"
                   value={this.state.ownBlockchainName}
                   style={{ paddingRight: "150px" }}
-                  onChange={evt =>
+                  onChange={(evt) =>
                     this.setState({ ownBlockchainName: evt.target.value })
                   }
-                  onKeyPress={evt => {
+                  onKeyPress={(evt) => {
                     if (evt.charCode === 13) {
                       this.pickBlockchain(this.state.ownBlockchainName);
                     }
@@ -91,39 +95,29 @@ class App extends Component {
         <Dialog step={0} title="Welcome!" quitWalkthroughVisible={true}>
           <div>
             <p>
-              This is an final step of an interactive blockchain demo. There is
-              a detailed step by step expanation of all the mechanics involved 
-              in making a blockchain that will give you a much better understanding 
-              of how blockchains work, so I highly recommend checking it out at {" "}
+             {" "}
               <a
                 href=""
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                repo at github.com/nambrot/blockchain-in-js
-              </a>{" "}.
-              Note that this is a distributed demo, so you can open up{" "}
-              <a href="/" target="_blank" rel="noopener noreferrer">
-                multiple tabs
-              </a>{" "}
-              of this app to simulate multiple participants. I have prepared a
-              walkthrough for you that you can follow along, or if you are the
-              more freedom-loving kind, you can quit and figure it out yourself.
+                
+              </a>
+              .
             </p>
           </div>
         </Dialog>
         <div className="container" style={{ padding: 24 }}>
-          {this.props.appState.selectedBlockchain === undefined && (
+          {selectedBlockchain === undefined ? (
             <p>
-              Learn more about blockchains. Start by picking or create a new
+              Learn more about blockchains. Start by picking or creating a new
               blockchain in the top-right corner.
             </p>
-          )}
-          {this.props.appState.selectedBlockchain !== undefined && (
+          ) : (
             <BlockchainWelcome
-              blockchain={this.props.appState.selectedBlockchain}
-              node={this.props.appState.node}
-              identities={this.props.appState.identities}
+              blockchain={selectedBlockchain}
+              node={node}
+              identities={identities}
             />
           )}
         </div>

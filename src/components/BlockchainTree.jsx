@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { SortableTree } from '@nosferatu500/react-sortable-tree';
-import { getTreeFromFlatData } from "@nosferatu500/react-sortable-tree";
+import SortableTree, { getTreeFromFlatData } from '@nosferatu500/react-sortable-tree';
+// import { getTreeFromFlatData } from "@nosferatu500/react-sortable-tree";
 import { Button, Dialog } from "@blueprintjs/core";
-import { last, pipe, pluck, contains } from "ramda";
+import { last, pipe, pluck} from "ramda";
+import { contains } from "ramda";
 // import NewBlock from "./NewBlock";
 import DetailBlock from "./DetailBlock";
 import { Tooltip, advanceTo, Dialog as WalkthroughDialog } from "./walkthrough";

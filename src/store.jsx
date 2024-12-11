@@ -6,7 +6,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { any, find } from "ramda";
-import Blockchain from "./models/Blockchain";
+import Blockchain from "./models/Blockchain.js";
 import { generatePair } from "./crypto";
 
 const defaultBlockchain = new Blockchain("Bitcoin");
@@ -39,7 +39,7 @@ let state = {
 
 window.state = state;
 
-
+// If prospective employers see this, I know very much that mutation of state in place is discouraged, but was done here for pedagogical reasons
 const action = function(actionPayload) {
   console.log(actionPayload);
   switch (actionPayload.type) {
