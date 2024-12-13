@@ -4,7 +4,7 @@ import SortableTree, { getTreeFromFlatData } from '@nosferatu500/react-sortable-
 import { Button, Dialog } from "@blueprintjs/core";
 import { last, pipe, pluck} from "ramda";
 import { contains } from "ramda";
-// import NewBlock from "./NewBlock";
+import NewBlock from "./NewBlock";
 import DetailBlock from "./DetailBlock";
 import { Tooltip, advanceTo, Dialog as WalkthroughDialog } from "./walkthrough";
 
