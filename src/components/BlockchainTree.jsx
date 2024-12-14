@@ -106,7 +106,7 @@ class BlockchainWelcome extends Component {
           <p>
             Thank you for following this demo. Play around to better understand blockchains.
             Feedback is welcome at{" "}
-            <a href="https://nambrot.com" target="_blank" rel="noopener noreferrer">nambrot.com</a>.
+            <a href="" target="_blank" rel="noopener noreferrer"></a>.
           </p>
         </WalkthroughDialog>
 

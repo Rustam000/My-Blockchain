@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import classnames from "classnames";
-import { Tab2, Tabs2, Button } from "@blueprintjs/core";
+import { Tab, Tabs, Button } from "@blueprintjs/core";
 import NewBlockHeader from "./NewBlockHeader";
-import NewBlockTransactionList from "./NewBlockTransactionList";
+// import NewBlockTransactionList from "./NewBlockTransactionList";
 import UTXOPoolTable from "./UTXOPoolTable";
 import { Tooltip, advanceTo, isAtStep } from "./walkthrough";
 class NewBlock extends Component {
@@ -20,12 +20,12 @@ class NewBlock extends Component {
   render() {
     return (
       <div style={{ padding: "10px" }}>
-        <Tabs2
+        <Tabs
           onChange={(newTabId, prevTabId, event) => {
             if (newTabId === "txs" && isAtStep(14)) advanceTo(15);
           }}
         >
-          <Tab2
+          <Tab
             id="blockheader"
             title="Block Header"
             panel={
@@ -35,7 +35,7 @@ class NewBlock extends Component {
               />
             }
           />
-          <Tab2
+          <Tab
             id="txs"
             title={
               <Tooltip
@@ -57,7 +57,7 @@ class NewBlock extends Component {
               />
             }
           />
-          <Tab2
+          <Tab
             id="utxopool"
             title="UTXO Pool"
             panel={
@@ -71,7 +71,7 @@ class NewBlock extends Component {
               </div>
             }
           />
-        </Tabs2>
+        </Tabs>
 
         <div style={{ float: "right" }}>
           <Tooltip
